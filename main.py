@@ -28,13 +28,21 @@ def getFrame(position, board):
             else: frame.append("\n$")
     return frame
 
+def getMoves(position, board):
+    if board[position] == "a":
+        pass
+    elif board[position] == "b":
+        pass
+
 screen = curses.initscr()
 screen.keypad(True)
 while True:
     boardFrame = getFrame(cursorPosition, board)
+
     screen.clear()
     screen.addstr("".join(boardFrame))
     screen.addstr("\n\n"+str(cursorPosition))
+
     key = getDirection(screen.getch())
     if key == 27 or key == 113: break
     cursorPosition = getPosition(cursorPosition, key)
